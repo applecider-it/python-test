@@ -1,0 +1,68 @@
+
+cd ~/workspace/github/python-test/src
+
+-----------------------------------
+
+起動
+
+
+カメラとAIで、顔を検出
+
+python -m app.entrypoints.face_tracking 
+
+最初は、OSの権限がないので、失敗する
+
+
+-----------------------------------
+
+セットアップ
+
+仮想環境では動かないので、ネイティブで動くpythonが必要
+
+
+pip install --upgrade pip
+
+pip install -r requirements.txt
+
+-----------------------------------
+
+Macでのpython初期作業
+
+
+brew update
+brew install pyenv
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+
+source ~/.zshrc
+
+
+brew install tcl-tk
+
+
+export LDFLAGS="-L/opt/homebrew/opt/tcl-tk/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/tcl-tk/lib/pkgconfig"
+
+
+pyenv install --list
+
+よさそうなバージョンを探す
+
+
+pyenv uninstall 3.12.13
+pyenv install 3.12.13
+
+pyenv global 3.12.13
+
+
+python --version
+
+which python
+
+-----------------------------------
+
+
