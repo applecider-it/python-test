@@ -1,43 +1,23 @@
 import tkinter as tk # GUIライブラリ（ウィンドウ表示）
 import cv2 # カメラ・画像処理ライブラリ
 
-from app.services.face_tracking.face_tracking_app_parts.update_frame import UpdateFrame
+from .face_tracking_app_parts.update_frame_ctrl import UpdateFrameCtrl
 
 class FaceTrackingApp:
     """
     カメラ映像を取得して顔検出し、
     Tkinterのウィンドウにリアルタイム表示する
 
-    ■ self
-
     self.screen_width: 画面の横幅
     self.screen_height: 画面の縦幅
     self.cap: カメラ
     self.label: 画像を表示するラベル（ここに映像を表示）
     self.face_cascade: 顔検出モデル
-
-    ■ 処理の流れ
-
-    run()
-      ↓
-    update_frame()（繰り返し呼ばれる）
-      ↓
-    顔検出 → 描画 → 表示
-
-    ■ 全体イメージ
-
-    [カメラ] → [OpenCV処理] → [PIL変換] → [Tkinter表示]
+    self.root: Tkinterウィンドウ
     """
 
     def __init__(self):
-        """
-        初期化処理
-        ・カメラの設定
-        ・顔検出モデルの読み込み
-        ・ウィンドウの作成
-        """
-
-        self.update_frame_ctrl = UpdateFrame(self)
+        self.update_frame_ctrl = UpdateFrameCtrl(self)
 
         self.screen_width = 320
         self.screen_height = 240
