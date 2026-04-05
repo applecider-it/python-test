@@ -1,6 +1,6 @@
 import cv2 # カメラ・画像処理ライブラリ
 
-from app.services.camera.capture import imgcap_to_imgtk
+from app.services.camera.capture import framecap_to_imgtk
 
 class UpdateFrameCtrl:
     """
@@ -39,7 +39,7 @@ class UpdateFrameCtrl:
             # サイズをウィンドウに合わせる
             frame = cv2.resize(frame, (self.main.screen_width, self.main.screen_height))
 
-            imgtk = imgcap_to_imgtk(frame)
+            imgtk = framecap_to_imgtk(frame)
 
             # 画像をラベルに設定
             # （参照を保持しないと画像が消えるので注意）
